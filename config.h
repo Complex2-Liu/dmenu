@@ -2,6 +2,8 @@
 /* Default settings; can be overriden by command line. */
 
 static int topbar = 1;                      /* -b  option; if 0, dmenu appears at bottom     */
+static const unsigned int alpha = 0xf0;
+static unsigned int border_width = 0;
 
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static char font[] = "monospace:size=14";
@@ -23,6 +25,13 @@ static char *colors[SchemeLast][2] = {
 	[SchemeSel]  = { selfgcolor,  selbgcolor  },
 	[SchemeOut]  = { "#000000",   "#00ffff" },
 };
+
+static const unsigned int alphas[SchemeLast][2] = {
+	[SchemeNorm] = { OPAQUE, alpha },
+	[SchemeSel] = { OPAQUE, alpha },
+	[SchemeOut] = { OPAQUE, alpha },
+};
+
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
 static unsigned int lines      = 0;
 
@@ -36,9 +45,10 @@ static const char worddelimiters[] = " ";
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-	{ "font",        STRING, &font },
-	{ "normfgcolor", STRING, &normfgcolor },
-	{ "normbgcolor", STRING, &normbgcolor },
-	{ "selfgcolor",  STRING, &selfgcolor },
-	{ "selbgcolor",  STRING, &selbgcolor },
+	{ "font",         STRING,  &font },
+	{ "normfgcolor",  STRING,  &normfgcolor },
+	{ "normbgcolor",  STRING,  &normbgcolor },
+	{ "selfgcolor",   STRING,  &selfgcolor },
+	{ "selbgcolor",   STRING,  &selbgcolor },
+	{ "border_width", INTEGER, &border_width },
 };

@@ -9,8 +9,8 @@ static unsigned int border_width = 0;
 static char font[] = "monospace:size=14";
 static const char *fonts[] = {
 	font,
-    "Ping Fang SC:pixelsize=14:antialias=true:autohint=true",
-    "Apple Color Emoji:pixelsize=14:antialias=true:autohint=true",
+    "Ping Fang SC:size=14:antialias=true:autohint=true",
+    "Apple Color Emoji:size=14:antialias=true:autohint=true",
 };
 
 static char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
